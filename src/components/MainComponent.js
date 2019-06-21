@@ -1,6 +1,7 @@
 import React from 'react';
 import RowsAndColumnsSelector from './RowsAndColumnsSelector'
 import ChairTable from './ChairTable'
+import Buttons from './Buttons'
 
 class MainComponent extends React.Component {
   constructor() {
@@ -12,6 +13,7 @@ class MainComponent extends React.Component {
       names: ["Putu", "Budi", "Dora", "Ahmad", "Santoso"]
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -77,13 +79,22 @@ class MainComponent extends React.Component {
       {[name]: parseInt(value, 10)}
     )
   }
+
+  handleClick(event) {
+    const {name} = event.target
+    switch (name) {
+      case "gen": this.generateTableData("rows", this.state.rows); break;
+      default: break;
+    }
+  }
   
   render() {
     console.log(this.state)
     return (
       <div className="MainComponent">
         <RowsAndColumnsSelector handleChange={this.handleChange} state={this.state} /> <br />
-        <ChairTable state={this.state} />
+        <ChairTable state={this.state} /> <br />
+        <Buttons handleClick={this.handleClick} />
       </div>
     )
   }
