@@ -18,14 +18,6 @@ class MainComponent extends React.Component {
     this.generateTableData("rows", this.state.rows)
   }
 
-  // generateColumns(n_columns) {
-  //   let arr = [];
-  //   for (let i = 0; i < n_columns; i++) {
-  //     arr[i] = this.state.names[Math.floor(Math.random() * 5)];
-  //   }
-  //   return arr;
-  // }
-
   generateTableData(name, value) {
     let nameIdxAssigned = [];
     let n_namesAssigned = 0;
@@ -35,7 +27,7 @@ class MainComponent extends React.Component {
         arr[i] = {id: i, columns: []};
 
         for (let j = 0; j < this.state.columns; j++) {
-          let idx = Math.floor(Math.random() * this.state.names.length);
+          let idx;
 
           do {
             idx = Math.floor(Math.random() * this.state.names.length);
@@ -55,7 +47,7 @@ class MainComponent extends React.Component {
         arr[i] = {id: i, columns: []};
         
         for (let j = 0; j < value; j++) {
-          let idx = Math.floor(Math.random() * this.state.names.length);
+          let idx;
 
           do {
             idx = Math.floor(Math.random() * this.state.names.length);

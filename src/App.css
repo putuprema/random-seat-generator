@@ -24,20 +24,12 @@
   align-items: center;
 }
 
-.Chair-table h1 {
-  text-align: center;
-}
-
 .Chair-table td {
   padding: 5px;
   width: 100px;
   height: 50px;
   text-align: center;
 }
-
-/* .Chair-table table {
-  cell: 10;
-} */
 
 .Chair-table table td {
   border: 1px solid black;
