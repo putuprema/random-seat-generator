@@ -1,8 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Random Seat Generator is a web application where you can make seating arrangements for your classroom with ease, whether you are classroom leader or teacher. Just type all your students' names and click Generate, the app will do the randomization for you. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can run (you’ll need to have Node >= 8.10 on your local development machine):
 
 ### `npm start`
 

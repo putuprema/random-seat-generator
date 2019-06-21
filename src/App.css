@@ -1,16 +1,7 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  /* background-color: #282c34; */
+  background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,15 +10,48 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.MainComponent {
+  padding: 10px 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Chair-table {
+  height: 500px;
+  /* background-color: #282c34; */
+  border: 1px solid grey;
+  padding: 1px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Chair-table h1 {
+  text-align: center;
+}
+
+.Chair-table td {
+  padding: 5px;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+}
+
+/* .Chair-table table {
+  cell: 10;
+} */
+
+.Chair-table table td {
+  border: 1px solid black;
+}
+
+.Rows-and-columns-selector td {
+  width: 50%;
+}
+
+.Rows-and-columns-selector table {
+  /* border: 1px solid black; */
+  width: 100%;
+}
+
+.selector {
+  width: 100%;
 }
