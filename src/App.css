@@ -1,13 +1,27 @@
 .App-header {
-  /* background-color: #282c34; */
   background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-  /* min-height: 100vh; */
+  max-height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(7px + 2vmin);
   color: white;
+}
+
+.App-footer {
+  background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(7px + 1.5vmin);
+  height: 40px;
+  color: white;
+}
+
+.App-footer a {
+  color: #ffffff;
 }
 
 .MainComponent {
@@ -16,12 +30,12 @@
 
 .Chair-table {
   height: 500px;
-  /* background-color: #282c34; */
   border: 1px solid grey;
   padding: 1px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
 }
 
 .Chair-table td {
@@ -40,7 +54,6 @@
 }
 
 .Rows-and-columns-selector table {
-  /* border: 1px solid black; */
   width: 100%;
 }
 
@@ -56,4 +69,27 @@
 
 .button-container button {
   margin: 0px 5px;
+}
+
+.names-form-container {
+  padding: 15px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-shadow: 3px 5px 10px rgba(128, 128, 128, 0.411);
+  animation: fade-in-bottom ease 0.4s forwards;
+}
+
+.names-form-container #studentNames{
+  width: 75%;
+}
+
+@keyframes fade-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
