@@ -10,12 +10,13 @@ function ChairTable(props) {
             <tr key={el.id}>
               {/* <td>{el.id}</td> */}
               {el.columns.map(el => (
-                <td key={el !== undefined ? el + Math.floor(Math.random() * 100) : Math.floor(Math.random() * 1000)}>{el}</td>
+                <td key={el !== undefined ? el + Math.floor(Math.random() * 100) : Math.random() * 55}>{el}</td>
               ))}
             </tr>
           ))}
         </tbody>
       </table>
+      <br />
     </div>
   )
 }
