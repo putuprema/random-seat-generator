@@ -8,9 +8,13 @@ function ChairTable(props) {
         <tbody>
           {props.state.tableData.map(el => (
             <tr key={el.id}>
-              {/* <td>{el.id}</td> */}
               {el.columns.map(el => (
-                <td key={el !== undefined ? el + Math.floor(Math.random() * 100) : Math.random() * 55}>{el}</td>
+                <td key={Math.random() * 55}>
+                  <ul>
+                    <li>{el[0]}</li>
+                    {el[1] !== undefined ? <li>{el[1]}</li> : undefined}
+                  </ul>
+                </td>
               ))}
             </tr>
           ))}

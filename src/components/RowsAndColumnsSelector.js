@@ -37,6 +37,17 @@ function RowsAndColumnsSelector(props) {
               </label>
             </td>
           </tr>
+          <tr>
+            <td colSpan="2">
+              <label>
+                Seats Per Table: <br />
+                <select name="seatsPerTable" value={props.state.seatsPerTable} onChange={props.handleChange} className="selector">
+                  <option value="1">One Seat per Table</option>
+                  <option value="2">Two Seats per Table</option>
+                </select>
+              </label>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

@@ -12,7 +12,8 @@ class MainComponent extends React.Component {
       rows: 5,
       tableData: [],
       names: ["Putu", "Budi", "Dora", "Ahmad", "Santoso"],
-      isNamesFormShown: false
+      isNamesFormShown: false,
+      seatsPerTable: 1
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -20,30 +21,35 @@ class MainComponent extends React.Component {
   }
 
   componentDidMount() {
-    this.generateTableData("rows", this.state.rows, this.state.names)
+    this.generateTableData(this.state.seatsPerTable, "rows", this.state.rows, this.state.names)
   }
 
-  generateTableData(rows_or_columns, value, studentNames) {
+  generateTableData(seatsPerTable, rows_or_columns, value, studentNames) {
     let nameIdxAssigned = [];
     let n_namesAssigned = 0;
     let arr = [];
+
     if (rows_or_columns === "rows") {
       for (let i = 0; i < value; i++) {
         arr[i] = {id: i, columns: []};
-
+        
         for (let j = 0; j < this.state.columns; j++) {
-          let idx;
-
-          do {
-            idx = Math.floor(Math.random() * studentNames.length);
-          } while (n_namesAssigned < studentNames.length && nameIdxAssigned[idx] === "true");
-
-          if (n_namesAssigned < studentNames.length) {
-            arr[i].columns[j] = studentNames[idx];
-            nameIdxAssigned[idx] = "true";
-            n_namesAssigned++;
+          arr[i].columns[j] = [];
+          
+          for (let k = 0; k < seatsPerTable; k++) {
+            let idx;
+  
+            do {
+              idx = Math.floor(Math.random() * studentNames.length);
+            } while (n_namesAssigned < studentNames.length && nameIdxAssigned[idx] === "true");
+  
+            if (n_namesAssigned < studentNames.length) {
+              arr[i].columns[j][k] = studentNames[idx];
+              nameIdxAssigned[idx] = "true";
+              n_namesAssigned++;
+            }
+            else arr[i].columns[j][k] = undefined
           }
-          else arr[i].columns[j] = undefined
         }
       }
     }
@@ -52,18 +58,22 @@ class MainComponent extends React.Component {
         arr[i] = {id: i, columns: []};
         
         for (let j = 0; j < value; j++) {
-          let idx;
-
-          do {
-            idx = Math.floor(Math.random() * studentNames.length);
-          } while (n_namesAssigned < studentNames.length && nameIdxAssigned[idx] === "true");
-
-          if (n_namesAssigned < studentNames.length) {
-            arr[i].columns[j] = studentNames[idx];
-            nameIdxAssigned[idx] = "true";
-            n_namesAssigned++;
+          arr[i].columns[j] = [];
+          
+          for (let k = 0; k < seatsPerTable; k++) {
+            let idx;
+  
+            do {
+              idx = Math.floor(Math.random() * studentNames.length);
+            } while (n_namesAssigned < studentNames.length && nameIdxAssigned[idx] === "true");
+  
+            if (n_namesAssigned < studentNames.length) {
+              arr[i].columns[j][k] = studentNames[idx];
+              nameIdxAssigned[idx] = "true";
+              n_namesAssigned++;
+            }
+            else arr[i].columns[j][k] = undefined
           }
-          else arr[i].columns[j] = undefined
         }
       }
     }
@@ -76,7 +86,13 @@ class MainComponent extends React.Component {
   handleChange(event) {
     const {name, value} = event.target
     if (name === "columns" || name === "rows") {
-      this.generateTableData(name, value, this.state.names)
+      this.generateTableData(this.state.seatsPerTable, name, value, this.state.names)
+      this.setState (
+        {[name]: parseInt(value, 10)}
+      )
+    }
+    else if (name === "seatsPerTable") {
+      this.generateTableData(parseInt(value, 10), "rows", this.state.rows, this.state.names)
       this.setState (
         {[name]: parseInt(value, 10)}
       )
@@ -91,7 +107,7 @@ class MainComponent extends React.Component {
   handleClick(event) {
     const {name} = event.target
     switch (name) {
-      case "gen": this.generateTableData("rows", this.state.rows, this.state.names); break;
+      case "gen": this.generateTableData(this.state.seatsPerTable, "rows", this.state.rows, this.state.names); break;
       case "updateName": this.setState(prevState => ( {isNamesFormShown: !prevState.isNamesFormShown} )); break;
       case "reset": window.location.reload(); break;
       default: break;
@@ -99,11 +115,10 @@ class MainComponent extends React.Component {
   }
 
   updateNames(studentNames) {
-    this.generateTableData("rows", this.state.rows, studentNames.split(", "));
+    this.generateTableData(this.state.seatsPerTable, "rows", this.state.rows, studentNames.split(", "));
   }
   
   render() {
-    // console.log(this.state)
     return (
       <div className="MainComponent">
         <RowsAndColumnsSelector handleChange={this.handleChange} state={this.state} /> <br />

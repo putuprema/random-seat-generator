@@ -49,6 +49,16 @@
   border: 1px solid black;
 }
 
+.Chair-table ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* .Rows-and-columns-selector table td {
+  border: 1px solid black;
+} */
+
 .Rows-and-columns-selector td {
   width: 50%;
 }
