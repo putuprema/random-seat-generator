@@ -1,8 +1,8 @@
 import React from 'react';
-import RowsAndColumnsSelector from './RowsAndColumnsSelector'
-import ChairTable from './ChairTable'
-import Buttons from './Buttons'
-import NamesForm from './NamesForm'
+import RowsAndColumnsSelector from './RowsAndColumnsSelector';
+import ChairTable from './ChairTable';
+import Buttons from './Buttons';
+import NamesForm from './NamesForm';
 
 class MainComponent extends React.Component {
   constructor() {
@@ -14,14 +14,14 @@ class MainComponent extends React.Component {
       names: ["Putu", "Budi", "Dora", "Ahmad", "Santoso"],
       isNamesFormShown: false,
       seatsPerTable: 1
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-    this.updateNames = this.updateNames.bind(this)
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.updateNames = this.updateNames.bind(this);
   }
 
   componentDidMount() {
-    this.generateTableData(this.state.seatsPerTable, "rows", this.state.rows, this.state.names)
+    this.generateTableData(this.state.seatsPerTable, "rows", this.state.rows, this.state.names);
   }
 
   generateTableData(seatsPerTable, rows_or_columns, value, studentNames) {
@@ -48,7 +48,7 @@ class MainComponent extends React.Component {
               nameIdxAssigned[idx] = "true";
               n_namesAssigned++;
             }
-            else arr[i].columns[j][k] = undefined
+            else arr[i].columns[j][k] = undefined;
           }
         }
       }
@@ -72,7 +72,7 @@ class MainComponent extends React.Component {
               nameIdxAssigned[idx] = "true";
               n_namesAssigned++;
             }
-            else arr[i].columns[j][k] = undefined
+            else arr[i].columns[j][k] = undefined;
           }
         }
       }
@@ -80,32 +80,32 @@ class MainComponent extends React.Component {
 
     this.setState(
       {tableData: arr, names: studentNames}
-    )
+    );
   }
 
   handleChange(event) {
-    const {name, value} = event.target
+    const {name, value} = event.target;
     if (name === "columns" || name === "rows") {
-      this.generateTableData(this.state.seatsPerTable, name, value, this.state.names)
+      this.generateTableData(this.state.seatsPerTable, name, value, this.state.names);
       this.setState (
         {[name]: parseInt(value, 10)}
-      )
+      );
     }
     else if (name === "seatsPerTable") {
-      this.generateTableData(parseInt(value, 10), "rows", this.state.rows, this.state.names)
+      this.generateTableData(parseInt(value, 10), "rows", this.state.rows, this.state.names);
       this.setState (
         {[name]: parseInt(value, 10)}
-      )
+      );
     }
     else {
       this.setState (
         {[name]: value}
-      )
+      );
     }
   }
 
   handleClick(event) {
-    const {name} = event.target
+    const {name} = event.target;
     switch (name) {
       case "gen": this.generateTableData(this.state.seatsPerTable, "rows", this.state.rows, this.state.names); break;
       case "updateName": this.setState(prevState => ( {isNamesFormShown: !prevState.isNamesFormShown} )); break;
@@ -126,7 +126,7 @@ class MainComponent extends React.Component {
         <Buttons handleClick={this.handleClick} /> <br />
         <NamesForm updateNames={this.updateNames} enabled={this.state.isNamesFormShown} /> <br />
       </div>
-    )
+    );
   }
 }
 

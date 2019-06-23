@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function Buttons(props) {
   return (
@@ -7,7 +7,7 @@ function Buttons(props) {
       <button name="updateName" onClick={props.handleClick}>Student Names</button>
       <button name="reset" onClick={props.handleClick}>Reset</button>
     </div>
-  )
+  );
 }
 
-export default Buttons
+export default Buttons;

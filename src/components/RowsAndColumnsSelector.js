@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function RowsAndColumnsSelector(props) {
   return (
@@ -58,7 +58,7 @@ function RowsAndColumnsSelector(props) {
         </tbody>
       </table>
     </div>
-  )
+  );
 }
 
-export default RowsAndColumnsSelector
+export default RowsAndColumnsSelector;

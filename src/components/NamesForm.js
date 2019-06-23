@@ -1,15 +1,4 @@
-import React from 'react'
-
-// function NamesForm(props) {
-//   return (
-//     <div className="names-form-container">
-//       <h2>Student Names</h2>
-//       <p>Here you can type your student names. Each student will be assigned a seat randomly.</p>
-//       <input name="namesInputForm" type="text" placeholder="Input your student names here..." value={props.state.namesInputForm} onChange={props.handleChange}></input>
-//       <button name="namesSubmit" onClick={props.handleClick}>Update</button>
-//     </div>
-//   )
-// }
+import React from 'react';
 
 class NamesForm extends React.Component {
   constructor(props) {
@@ -17,7 +6,7 @@ class NamesForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       names: ""
-    }
+    };
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -42,10 +31,10 @@ class NamesForm extends React.Component {
             <input type="submit" value="Update" />
         </form>
         </div>
-      )
+      );
     }
     return <div></div>;
   }
 }
 
-export default NamesForm
+export default NamesForm;

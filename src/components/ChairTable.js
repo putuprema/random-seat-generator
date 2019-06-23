@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function ChairTable(props) {
   return (
@@ -22,7 +22,7 @@ function ChairTable(props) {
       </table>
       <br />
     </div>
-  )
+  );
 }
 
-export default ChairTable
+export default ChairTable;
