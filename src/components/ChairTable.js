@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 function ChairTable(props) {
   return (
@@ -6,7 +7,7 @@ function ChairTable(props) {
       <h1>FRONT</h1>
       <table>
         <tbody>
-          {props.state.tableData.map(el => (
+          {props.tableData.map(el => (
             <tr key={el.id}>
               {el.columns.map(el => (
                 <td key={Math.random() * 55}>
@@ -25,4 +26,11 @@ function ChairTable(props) {
   );
 }
 
-export default ChairTable;
+const mapStateToProps = state => ({
+  tableData: state.tables.tableData
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(ChairTable);

@@ -20,7 +20,7 @@ export default function(state = initialState, action) {
     case GENERATE_TABLE:
       return {
         ...state,
-        tableData: action.payload.tableData,
+        tableData: action.payload.arr,
         names: action.payload.studentNames
       };
     case CHANGE_SEATPERTABLE:

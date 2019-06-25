@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { generateTable, nameformToggle } from '../actions/appActions';
 
 class NamesForm extends React.Component {
   constructor(props) {
@@ -12,7 +14,13 @@ class NamesForm extends React.Component {
 
   handleSubmit(event) {
     console.log('Student names were submitted: ' + this.state.names);
-    this.props.updateNames(this.state.names);
+    this.props.generateTable(
+      this.props.seatsPerTable,
+      'rows',
+      this.props.rows,
+      this.state.names.split(', ')
+    );
+    this.props.nameformToggle();
     event.preventDefault();
   }
 
@@ -21,7 +29,7 @@ class NamesForm extends React.Component {
   }
 
   render() {
-    if (this.props.enabled) {
+    if (this.props.isNamesFormShown) {
       return (
         <div className="names-form-container">
           <h2>Student Names</h2>
@@ -46,4 +54,16 @@ class NamesForm extends React.Component {
   }
 }
 
-export default NamesForm;
+const mapStateToProps = state => ({
+  rows: state.tables.rows,
+  isNamesFormShown: state.tables.isNamesFormShown,
+  seatsPerTable: state.tables.seatsPerTable
+});
+
+export default connect(
+  mapStateToProps,
+  {
+    generateTable,
+    nameformToggle
+  }
+)(NamesForm);
