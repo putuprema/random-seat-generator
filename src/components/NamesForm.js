@@ -5,7 +5,7 @@ class NamesForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      names: ""
+      names: ''
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -17,7 +17,7 @@ class NamesForm extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({names: event.target.value});
+    this.setState({ names: event.target.value });
   }
 
   render() {
@@ -25,15 +25,24 @@ class NamesForm extends React.Component {
       return (
         <div className="names-form-container">
           <h2>Student Names</h2>
-          <p>Here you can type your student names. Each student will be assigned a seat randomly.</p>
+          <p>
+            Here you can type your student names. Each student will be assigned
+            a seat randomly.
+          </p>
           <form onSubmit={this.handleSubmit}>
-            <input id="studentNames" type="text" value={this.state.names} onChange={this.handleChange} placeholder="Input student names here (e.g. Jojo, Lili, Bibi)"/>
+            <input
+              id="studentNames"
+              type="text"
+              value={this.state.names}
+              onChange={this.handleChange}
+              placeholder="Input student names here (e.g. Jojo, Lili, Bibi)"
+            />
             <input type="submit" value="Update" />
-        </form>
+          </form>
         </div>
       );
     }
-    return <div></div>;
+    return <div />;
   }
 }
 

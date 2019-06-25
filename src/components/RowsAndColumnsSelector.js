@@ -9,7 +9,12 @@ function RowsAndColumnsSelector(props) {
             <td>
               <label>
                 Columns: <br />
-                <select name="columns" value={props.state.columns} onChange={props.handleChange} className="selector">
+                <select
+                  name="columns"
+                  value={props.state.columns}
+                  onChange={props.handleChange}
+                  className="selector"
+                >
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -24,7 +29,12 @@ function RowsAndColumnsSelector(props) {
             <td>
               <label>
                 Rows: <br />
-                <select name="rows" value={props.state.rows} onChange={props.handleChange} className="selector">
+                <select
+                  name="rows"
+                  value={props.state.rows}
+                  onChange={props.handleChange}
+                  className="selector"
+                >
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -48,7 +58,12 @@ function RowsAndColumnsSelector(props) {
             <td colSpan="2">
               <label>
                 Seats Per Table: <br />
-                <select name="seatsPerTable" value={props.state.seatsPerTable} onChange={props.handleChange} className="selector">
+                <select
+                  name="seatsPerTable"
+                  value={props.state.seatsPerTable}
+                  onChange={props.handleChange}
+                  className="selector"
+                >
                   <option value="1">One Seat per Table</option>
                   <option value="2">Two Seats per Table</option>
                 </select>
