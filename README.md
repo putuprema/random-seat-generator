@@ -6,7 +6,7 @@ In the project directory, you can run (you’ll need to have Node >= 8.10 on you
 
 ### `npm install`
 
-Installs all required dependencies.
+Installs all required dependencies.<br>
 If you have just cloned this repository, you need to first run this command for the app to function properly.
 
 ### `npm start`
