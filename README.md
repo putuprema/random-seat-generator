@@ -4,6 +4,11 @@ Random Seat Generator is a web application where you can make seating arrangemen
 
 In the project directory, you can run (you’ll need to have Node >= 8.10 on your local development machine):
 
+### `npm install`
+
+Installs all required dependencies.
+If you have just cloned this repository, you need to first run this command for the app to function properly.
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
