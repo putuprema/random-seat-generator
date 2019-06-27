@@ -23,6 +23,7 @@ class Buttons extends React.Component {
         this.props.nameformToggle();
         break;
       case 'reset':
+        localStorage.clear();
         window.location.reload();
         break;
       default:
