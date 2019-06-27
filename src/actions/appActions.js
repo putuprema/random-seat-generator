@@ -74,6 +74,25 @@ export const generateTable = (
   });
 };
 
+export const initFirstStart = () => (dispatch, getState) => {
+  const studentNamesFromLocalStorage = localStorage.getItem('studentNames'); // get student names from localstorage
+  const { seatsPerTable, rows, names } = getState().tables;
+  if (studentNamesFromLocalStorage) {
+    // if student names are found on localstorage, then push them into the app state
+    dispatch(
+      generateTable(
+        seatsPerTable,
+        'rows',
+        rows,
+        studentNamesFromLocalStorage.split(',')
+      )
+    );
+  } else {
+    // else, use default namesets
+    dispatch(generateTable(seatsPerTable, 'rows', rows, names));
+  }
+};
+
 export const changeSeatPerTable = seatPerTable => dispatch => {
   dispatch({
     type: CHANGE_SEATPERTABLE,

@@ -5,7 +5,8 @@ import {
   changeRows,
   changeColumns,
   changeSeatPerTable,
-  nameformToggle
+  nameformToggle,
+  initFirstStart
 } from '../actions/appActions';
 import RowsAndColumnsSelector from './RowsAndColumnsSelector';
 import ChairTable from './ChairTable';
@@ -14,12 +15,7 @@ import NamesForm from './NamesForm';
 
 class MainComponent extends React.Component {
   componentDidMount() {
-    this.props.generateTable(
-      this.props.seatsPerTable,
-      'rows',
-      this.props.rows,
-      this.props.names
-    );
+    this.props.initFirstStart();
   }
 
   render() {
@@ -50,6 +46,7 @@ export default connect(
     changeRows,
     changeColumns,
     changeSeatPerTable,
-    nameformToggle
+    nameformToggle,
+    initFirstStart
   }
 )(MainComponent);
