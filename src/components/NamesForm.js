@@ -7,7 +7,7 @@ class NamesForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      names: ''
+      names: this.props.names.join(', ')
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -29,35 +29,32 @@ class NamesForm extends React.Component {
   }
 
   render() {
-    if (this.props.isNamesFormShown) {
-      return (
-        <div className="names-form-container">
-          <h2>Student Names</h2>
-          <p>
-            Here you can type your student names. Each student will be assigned
-            a seat randomly.
-          </p>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              id="studentNames"
-              type="text"
-              value={this.state.names}
-              onChange={this.handleChange}
-              placeholder="Input student names here (e.g. Jojo, Lili, Bibi)"
-            />
-            <input type="submit" value="Update" />
-          </form>
-        </div>
-      );
-    }
-    return <div />;
+    return (
+      <div className="names-form-container">
+        <h2>Student Names</h2>
+        <p>
+          Here you can type your student names. Each student will be assigned a
+          seat randomly.
+        </p>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            id="studentNames"
+            type="text"
+            value={this.state.names}
+            onChange={this.handleChange}
+            placeholder="Input student names here (e.g. Jojo, Lili, Bibi)"
+          />
+          <input type="submit" value="Update" />
+        </form>
+      </div>
+    );
   }
 }
 
 const mapStateToProps = state => ({
   rows: state.tables.rows,
-  isNamesFormShown: state.tables.isNamesFormShown,
-  seatsPerTable: state.tables.seatsPerTable
+  seatsPerTable: state.tables.seatsPerTable,
+  names: state.tables.names
 });
 
 export default connect(

@@ -24,7 +24,7 @@ class MainComponent extends React.Component {
         <RowsAndColumnsSelector /> <br />
         <ChairTable /> <br />
         <Buttons /> <br />
-        <NamesForm /> <br />
+        {this.props.isNamesFormShown ? <NamesForm /> : undefined} <br />
       </div>
     );
   }
